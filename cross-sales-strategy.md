@@ -1750,6 +1750,621 @@ LOW RISK:
 ✅ Infrastructure scalability (Azure platform)
 ```
 
+## Internal User Personas & Role Mapping
+
+Understanding how different internal roles will interact with the cross-sales solution is essential for successful adoption and implementation. Each persona has unique needs, pain points, and success metrics.
+
+### Primary User Personas
+
+#### 🎯 **Account Manager / Sales Representative**
+**Role Description**: Relationship owners for mid-size SME customers (€5M+ turnover)
+**Current Responsibilities**: Policy renewals, relationship management, growth account development
+**Technology Proficiency**: High Salesforce usage, moderate digital tools
+
+**Daily Interaction with Cross-Sales System**:
+```
+Morning Routine (8:00-9:00 AM):
+├── Review overnight recommendation alerts in Salesforce dashboard
+├── Prioritize customer outreach based on urgency scores
+├── Access pre-written email templates with customer-specific data
+└── Schedule follow-up calls for high-value opportunities
+
+Throughout Day:
+├── Receive real-time notifications for customer portal activity
+├── Use recommendation reasoning to build compelling proposals
+├── Access instant quote tools during customer conversations
+└── Update opportunity status and customer feedback
+
+End of Day:
+├── Review conversion metrics and pipeline updates
+├── Plan next day's activities based on system priorities
+└── Submit feedback on recommendation quality
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "I spend 2 hours researching each customer before renewal calls"
+- ✅ **After**: "System provides complete customer analysis and recommendations in 5 minutes"
+
+**Success Metrics**:
+- 40% increase in cross-sales conversion rate
+- 60% reduction in research time per customer
+- 25% increase in customer meeting efficiency
+- €150K+ additional annual sales per account manager
+
+**System Features They Use Most**:
+- Salesforce opportunity alerts and recommendations
+- Customer risk profile summaries
+- Pre-calculated quote tools
+- Email campaign templates
+- Mobile notifications for urgent opportunities
+
+---
+
+#### 👩‍💼 **Customer Service Representative / Frontliner**
+**Role Description**: First point of contact for customer inquiries, policy changes, and support
+**Current Responsibilities**: Answer customer questions, process policy updates, handle renewals
+**Technology Proficiency**: Moderate Salesforce usage, high MyBusiness portal knowledge
+
+**Daily Interaction with Cross-Sales System**:
+```
+Customer Call Handling:
+├── Customer profile loads automatically with risk scores and recommendations
+├── Access to "conversation starters" for appropriate cross-sales moments
+├── One-click transfer to sales team for complex opportunities
+└── Log customer interest levels for follow-up prioritization
+
+Portal Support:
+├── Help customers navigate new recommendation features in MyBusiness
+├── Explain coverage gap analysis and recommendation reasoning
+├── Guide customers through webshop cross-sales options
+└── Escalate high-value opportunities to account managers
+
+Administrative Tasks:
+├── Process policy updates that trigger new recommendation calculations
+├── Update customer preferences for communication frequency
+├── Generate and send recommendation summaries to customers
+└── Track customer satisfaction with recommendation quality
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "Customers ask about coverage gaps, but I don't know what to recommend"
+- ✅ **After**: "I have instant access to personalized recommendations with clear explanations"
+
+**Success Metrics**:
+- 50% improvement in first-call resolution for coverage questions
+- 30% increase in successful warm handoffs to sales team
+- 85%+ customer satisfaction with recommendation discussions
+- 15% reduction in call handling time through better preparation
+
+**System Features They Use Most**:
+- Customer 360-degree view with risk scores
+- Recommendation explanations and talking points
+- Escalation workflows to sales team
+- Customer preference management tools
+- Knowledge base with cross-sales guidance
+
+---
+
+#### 📧 **Digital Marketing Specialist**
+**Role Description**: Manages email campaigns, digital communications, and customer engagement
+**Current Responsibilities**: Campaign management, customer communications, digital channel optimization
+**Technology Proficiency**: Expert in Salesforce Marketing Cloud, high analytics skills
+
+**Daily Interaction with Cross-Sales System**:
+```
+Campaign Management:
+├── Review overnight automated campaign performance
+├── Adjust targeting rules based on conversion analytics
+├── Create new campaign variations for A/B testing
+└── Monitor real-time engagement metrics and optimization opportunities
+
+Content Creation:
+├── Develop personalized email templates using recommendation data
+├── Create industry-specific messaging for different customer segments
+├── Design MyBusiness portal content for recommendation displays
+└── Optimize webshop cross-sales messaging and placement
+
+Analytics & Optimization:
+├── Analyze campaign performance by customer segment and product
+├── Identify best-performing recommendation types and messaging
+├── Report on channel effectiveness (email vs. portal vs. webshop)
+└── Recommend system improvements based on customer behavior data
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "Generic email campaigns with 2-3% conversion rates"
+- ✅ **After**: "Personalized, triggered campaigns with 15-20% conversion rates"
+
+**Success Metrics**:
+- 500% improvement in email campaign conversion rates
+- 40% increase in customer engagement scores
+- 60% reduction in campaign development time
+- 25% improvement in customer journey completion rates
+
+**System Features They Use Most**:
+- Campaign automation and trigger management
+- Customer segmentation and targeting tools
+- A/B testing and optimization platforms
+- Real-time analytics and reporting dashboards
+- Content personalization engines
+
+---
+
+#### 📊 **Business Analyst / Data Specialist**
+**Role Description**: Analyzes customer data, generates insights, and optimizes business processes
+**Current Responsibilities**: Reporting, data analysis, performance measurement, process improvement
+**Technology Proficiency**: Expert in Databricks, Power BI, advanced analytics tools
+
+**Daily Interaction with Cross-Sales System**:
+```
+Data Analysis:
+├── Monitor model performance and prediction accuracy
+├── Analyze customer behavior patterns and recommendation effectiveness
+├── Identify new cross-sales opportunities through data mining
+└── Generate insights for business strategy optimization
+
+Reporting:
+├── Create executive dashboards showing cross-sales performance
+├── Develop customer segment analysis and profitability reports
+├── Track ROI metrics and business case validation
+└── Provide recommendations for system improvements
+
+System Optimization:
+├── Tune recommendation algorithms based on performance data
+├── Update customer segmentation models with new behavioral data
+├── Identify and resolve data quality issues
+└── Test and implement new predictive models
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "Manual reporting takes 3 days, analysis is reactive"
+- ✅ **After**: "Real-time dashboards provide instant insights for proactive decisions"
+
+**Success Metrics**:
+- 80% reduction in report generation time
+- 95% improvement in prediction accuracy over time
+- 100% real-time availability of key business metrics
+- 50% faster identification of new business opportunities
+
+**System Features They Use Most**:
+- Advanced analytics and machine learning platforms
+- Real-time data pipelines and quality monitoring
+- Executive reporting and dashboard tools
+- Model performance tracking and optimization
+- Experimental design and A/B testing frameworks
+
+---
+
+#### 🛡️ **Underwriter / Risk Assessment Specialist**
+**Role Description**: Evaluates customer risks, sets pricing, and determines coverage terms
+**Current Responsibilities**: Risk assessment, pricing approval, coverage determination
+**Technology Proficiency**: Moderate technology usage, expert in risk evaluation
+
+**Daily Interaction with Cross-Sales System**:
+```
+Risk Assessment:
+├── Review AI-generated risk scores and validate against expertise
+├── Provide feedback on risk model accuracy for different industries
+├── Approve or adjust recommended coverage limits and pricing
+└── Flag unusual recommendations for manual review
+
+Product Development:
+├── Analyze cross-sales data to identify new product opportunities
+├── Validate that recommended product combinations make risk sense
+├── Ensure compliance with regulatory requirements across recommendations
+└── Optimize pricing for bundled product offerings
+
+Quality Assurance:
+├── Monitor recommendation quality and business rule compliance
+├── Identify patterns in recommendation accuracy by product line
+├── Provide training data for improving risk assessment models
+└── Ensure recommendations align with company risk appetite
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "See recommendations after they're already sent to customers"
+- ✅ **After**: "Involved in recommendation logic design and real-time validation"
+
+**Success Metrics**:
+- 90% alignment between AI recommendations and underwriter judgment
+- 30% reduction in manual risk assessment time
+- 95% compliance rate with regulatory requirements
+- 20% improvement in pricing accuracy for cross-sold products
+
+**System Features They Use Most**:
+- Risk model validation and override tools
+- Recommendation approval workflows
+- Pricing optimization and bundling tools
+- Regulatory compliance monitoring
+- Model training and feedback systems
+
+---
+
+#### 🏢 **Branch Manager / Regional Leader**
+**Role Description**: Manages local market performance, oversees sales teams, drives regional growth
+**Current Responsibilities**: Team management, performance monitoring, market development
+**Technology Proficiency**: Moderate Salesforce usage, strong business focus
+
+**Daily Interaction with Cross-Sales System**:
+```
+Team Management:
+├── Review team performance dashboards and individual metrics
+├── Identify coaching opportunities based on cross-sales success rates
+├── Allocate resources to highest-opportunity customers and markets
+└── Set team targets based on predictive pipeline analytics
+
+Market Analysis:
+├── Analyze regional cross-sales performance vs. other markets
+├── Identify local market opportunities and competitive threats
+├── Monitor customer satisfaction with cross-sales approach
+└── Develop regional strategies based on customer behavior insights
+
+Strategic Planning:
+├── Use customer analytics for territory and resource planning
+├── Identify high-potential customers for personal attention
+├── Plan market campaigns based on regional opportunity analysis
+└── Report regional performance and insights to senior leadership
+```
+
+**Key Pain Points Addressed**:
+- ❌ **Before**: "Rely on monthly reports that are already outdated"
+- ✅ **After**: "Real-time visibility into team performance and market opportunities"
+
+**Success Metrics**:
+- 35% improvement in team cross-sales performance
+- 25% better resource allocation efficiency
+- 90% accuracy in quarterly forecasting
+- 20% increase in regional market share
+
+**System Features They Use Most**:
+- Regional performance dashboards and team analytics
+- Customer opportunity scoring and prioritization
+- Forecasting and pipeline management tools
+- Competitive analysis and market intelligence
+- Team coaching and performance management tools
+
+---
+
+### Persona Interaction Matrix
+
+```
+Process Stage        │Account Mgr│Frontliner│Marketing │Analyst   │Underwriter│Branch Mgr│
+────────────────────┼──────────┼─────────┼─────────┼─────────┼──────────┼─────────┤
+Data Collection     │    Low   │   High   │   Low    │   High   │   Medium  │   Low    │
+Customer Analysis   │   High   │  Medium  │  Medium  │   High   │   High    │  Medium  │
+Recommendation Gen  │  Medium  │   Low    │  Medium  │   High   │   High    │   Low    │
+Customer Engagement │   High   │   High   │   High   │   Low    │   Low     │  Medium  │
+Conversion Tracking │   High   │  Medium  │   High   │   High   │  Medium   │   High   │
+Performance Review  │  Medium  │   Low    │  Medium  │   High   │  Medium   │   High   │
+```
+
+### Training & Change Management by Persona
+
+#### **Account Manager Training (2 weeks)**
+- Week 1: Understanding customer risk profiles and recommendation logic
+- Week 2: Advanced conversation techniques and objection handling
+
+#### **Frontliner Training (1 week)**
+- Week 1: System navigation, customer support, and escalation procedures
+
+#### **Marketing Training (3 weeks)**
+- Week 1: Campaign automation and targeting
+- Week 2: Content personalization and optimization
+- Week 3: Analytics and performance measurement
+
+#### **Analyst Training (4 weeks)**
+- Week 1-2: Data platform and model understanding
+- Week 3: Advanced analytics and optimization techniques
+- Week 4: Business intelligence and reporting
+
+#### **Underwriter Training (2 weeks)**
+- Week 1: Risk model validation and override procedures
+- Week 2: Pricing optimization and compliance monitoring
+
+#### **Branch Manager Training (1 week)**
+- Week 1: Dashboard usage, team management, and strategic planning tools
+
+This persona mapping ensures each role understands their specific value and responsibilities in the cross-sales ecosystem, leading to better adoption and more effective implementation.
+
+## Progressive Intelligence Evolution Strategy
+
+To reduce implementation risk and demonstrate quick wins, the cross-sales solution should evolve through three distinct sophistication levels: Simple Rules → Machine Learning → Advanced AI. This progressive approach allows for faster initial deployment, continuous learning, and stakeholder confidence building.
+
+### Evolution Pathway Overview
+
+```
+┌─── PHASE 1: SIMPLE RULES ─────┐  ┌─── PHASE 2: MACHINE LEARNING ─┐  ┌─── PHASE 3: ADVANCED AI ─────┐
+│ Months 1-6                    │  │ Months 7-18                   │  │ Months 19+                   │
+│ • Business logic rules        │  │ • Pattern recognition         │  │ • Predictive intelligence    │
+│ • Static customer segments    │  │ • Dynamic scoring models      │  │ • Natural language processing│
+│ • Predefined triggers         │  │ • Behavioral analytics        │  │ • Real-time optimization     │
+│ • Manual campaign management  │  │ • Automated A/B testing       │  │ • Advanced personalization   │
+└───────────────────────────────┘  └───────────────────────────────┘  └──────────────────────────────┘
+          │                               │                               │
+          ▼                               ▼                               ▼
+    Quick Wins &                   Enhanced Performance           Maximum Sophistication
+    Stakeholder Buy-in             & Learning Capabilities         & Competitive Advantage
+```
+
+### Phase 1: Simple Business Rules (Months 1-6)
+
+#### What We Build:
+**Rule-Based Recommendation Engine using clear business logic**
+
+**Core Logic Examples**:
+```
+IF customer_industry = "IT Services" 
+   AND current_policies CONTAINS "General Liability"
+   AND current_policies NOT CONTAINS "Professional Indemnity"
+THEN recommend "Professional Indemnity" WITH priority = HIGH
+
+IF customer_employees >= 15 
+   AND current_policies NOT CONTAINS "D&O Insurance"
+   AND company_type = "Corporation"
+THEN recommend "D&O Insurance" WITH priority = MEDIUM
+
+IF customer_industry = "Manufacturing"
+   AND current_policies CONTAINS "General Liability"
+   AND current_policies NOT CONTAINS "Product Liability"
+THEN recommend "Product Liability" WITH priority = HIGH
+```
+
+**Implementation Approach**:
+- **Technology**: Simple decision trees in Azure Logic Apps or Salesforce Process Builder
+- **Data Sources**: Customer master data, policy portfolio, basic business information
+- **Deployment Time**: 6-8 weeks for basic functionality
+- **Complexity**: Low - can be built by business analysts with IT support
+
+**Phase 1 Capabilities**:
+✅ **Industry-Based Recommendations**
+- IT Companies → Professional Indemnity + Cyber
+- Manufacturing → Product Liability + Workers' Comp
+- Retail → Employment Practices + General Liability
+
+✅ **Size-Based Triggers**
+- <10 employees → Focus on Professional lines
+- 10-50 employees → Add Employment Practices + D&O
+- 50+ employees → Full corporate suite recommendations
+
+✅ **Policy Gap Analysis**
+- Compare current coverage against industry standards
+- Identify obvious gaps in standard business protection
+- Flag customers with single policies (expansion opportunities)
+
+✅ **Basic Next Best Actions**
+- Renewal reminders 60/30/7 days before expiration
+- New policy congratulations with complementary suggestions
+- Annual review scheduling based on policy anniversary dates
+
+**Phase 1 Success Metrics**:
+- 20-25% cross-sales conversion rate (industry baseline: 15%)
+- €1,500-€2,000 average additional premium per successful cross-sell
+- 95% recommendation relevance (customer survey feedback)
+- <5 second recommendation generation time
+
+**Stakeholder Benefits in Phase 1**:
+- **Quick Implementation**: Visible results within 2 months
+- **Clear Logic**: Business users understand and trust the recommendations
+- **Immediate ROI**: Fast payback on initial investment
+- **Foundation Building**: Data collection and process establishment
+
+---
+
+### Phase 2: Machine Learning (Months 7-18)
+
+#### What We Add:
+**Predictive Analytics and Pattern Recognition using historical data**
+
+**Enhanced Capabilities**:
+```
+Customer Propensity Scoring:
+├── Purchase Likelihood (0-100 score)
+│   ├── Based on historical customer behavior patterns
+│   ├── Seasonal trends and timing optimization
+│   └── Industry peer comparison analysis
+├── Churn Risk Assessment (0-100 score)
+│   ├── Engagement pattern analysis
+│   ├── Payment behavior indicators
+│   └── Competitive pressure signals
+└── Lifetime Value Prediction
+    ├── Revenue growth trajectory modeling
+    ├── Cross-sell potential scoring
+    └── Retention probability calculation
+```
+
+**Implementation Approach**:
+- **Technology**: Azure Machine Learning + Databricks for model development
+- **Data Sources**: Phase 1 data + customer behavior, claims history, external market data
+- **Model Types**: Classification models, regression analysis, clustering algorithms
+- **Deployment Time**: 4-6 months for full ML capabilities
+
+**Phase 2 New Capabilities**:
+
+🎯 **Dynamic Customer Scoring**
+```python
+# Example ML Model Logic
+customer_score = {
+    'cross_sell_propensity': predict_purchase_likelihood(
+        industry, size, engagement_history, peer_comparison
+    ),
+    'optimal_timing': calculate_best_contact_window(
+        historical_response_patterns, seasonal_trends
+    ),
+    'channel_preference': determine_best_channel(
+        past_engagement_data, conversion_rates_by_channel
+    )
+}
+```
+
+🔍 **Behavioral Pattern Recognition**
+- Portal activity increases → Business expansion signal
+- Policy document downloads → Competitive shopping indicator
+- Payment timing changes → Financial stress or growth signals
+- Inquiry patterns → Specific risk concern identification
+
+📊 **Performance Optimization**
+- A/B testing for recommendation presentation
+- Dynamic pricing based on customer segments
+- Channel optimization (email vs. call vs. portal)
+- Message personalization based on response history
+
+⏰ **Predictive Timing**
+- Best day/time for customer contact based on response history
+- Renewal optimization beyond standard schedules
+- Industry event correlation (cyber attacks, regulatory changes)
+- Business cycle alignment (budget seasons, growth periods)
+
+**Phase 2 Success Metrics**:
+- 35-45% cross-sales conversion rate (75% improvement over Phase 1)
+- €2,500-€4,000 average additional premium per successful cross-sell
+- 40% improvement in timing accuracy for customer outreach
+- 90% prediction accuracy for customer propensity scores
+
+---
+
+### Phase 3: Advanced AI (Months 19+)
+
+#### What We Add:
+**Intelligent Automation with Natural Language Processing and Real-time Optimization**
+
+**Advanced AI Capabilities**:
+```
+Intelligent Systems:
+├── Natural Language Processing
+│   ├── Customer email/chat sentiment analysis
+│   ├── Industry news impact assessment
+│   └── Personalized content generation
+├── Real-time Decision Making
+│   ├── Dynamic recommendation adjustment
+│   ├── Contextual offer optimization
+│   └── Competitive response automation
+└── Advanced Personalization
+    ├── Individual customer journey optimization
+    ├── Micro-segmentation (segment of 1)
+    └── Predictive customer needs modeling
+```
+
+**Implementation Approach**:
+- **Technology**: Azure Cognitive Services, GPT models, advanced MLOps
+- **Data Sources**: All previous data + external market intelligence, social signals, economic indicators
+- **AI Models**: Deep learning, transformer models, reinforcement learning
+- **Deployment Time**: 6-12 months for advanced AI features
+
+**Phase 3 Advanced Capabilities**:
+
+🧠 **Intelligent Content Generation**
+- Personalized email content based on customer's business situation
+- Industry-specific risk explanations and value propositions
+- Dynamic pricing presentations optimized for individual customers
+- Automated proposal generation with customized terms
+
+🔮 **Predictive Business Intelligence**
+- Anticipate customer business changes before they happen
+- Predict industry risk trends and proactive customer protection
+- Forecast customer growth and evolving insurance needs
+- Identify emerging cross-sell opportunities from market signals
+
+⚡ **Real-time Optimization**
+- Dynamic recommendation adjustment based on customer responses
+- Real-time competitive pricing and positioning
+- Instant content personalization based on customer interaction
+- Automated campaign optimization without human intervention
+
+🎯 **Hyper-Personalization**
+- Individual customer journey orchestration
+- Micro-moment marketing based on real-time signals
+- Predictive customer service (address needs before customer asks)
+- Customized product bundling based on unique business profile
+
+**Phase 3 Success Metrics**:
+- 55-65% cross-sales conversion rate
+- €4,000-€6,000 average additional premium per successful cross-sell
+- <1 second real-time recommendation generation
+- 95% customer satisfaction with recommendation relevance
+
+---
+
+### Evolution Implementation Strategy
+
+#### Phase 1 to Phase 2 Transition Criteria:
+✅ **Performance Thresholds**:
+- Achieve 25% conversion rate consistently for 3 months
+- Process 1,000+ successful recommendations
+- Collect sufficient behavioral data (6+ months)
+- Complete stakeholder training and adoption
+
+✅ **Data Readiness**:
+- Clean, normalized customer data pipeline
+- Historical interaction data (email, calls, portal usage)
+- Baseline performance metrics established
+- Quality feedback loop operational
+
+#### Phase 2 to Phase 3 Transition Criteria:
+✅ **ML Model Maturity**:
+- Achieve 85%+ prediction accuracy consistently
+- Complete A/B testing framework
+- Demonstrate clear ROI from ML investments
+- Advanced analytics team fully operational
+
+✅ **Business Readiness**:
+- Complex customer segments well understood
+- Advanced personalization demand validated
+- Competitive pressure requiring advanced capabilities
+- Budget and resources committed for AI investments
+
+### Technology Evolution Roadmap
+
+```
+Phase 1 Technology Stack:
+┌────────────────────────────────────────────────────────────────┐
+│ Salesforce Process Builder + Azure Logic Apps                 │
+│ Basic Customer Data + Policy Information                      │
+│ Simple Decision Trees + Static Business Rules                 │
+│ Standard Salesforce Reporting + Power BI                      │
+└────────────────────────────────────────────────────────────────┘
+
+Phase 2 Technology Stack:
+┌────────────────────────────────────────────────────────────────┐
+│ Azure Machine Learning + Databricks                           │
+│ Enhanced Customer Data + Behavioral Analytics                 │
+│ Predictive Models + Classification Algorithms                 │
+│ Advanced Analytics + Custom Dashboards                        │
+└────────────────────────────────────────────────────────────────┘
+
+Phase 3 Technology Stack:
+┌────────────────────────────────────────────────────────────────┐
+│ Azure Cognitive Services + Custom AI Models                   │
+│ Comprehensive Data Lake + External Intelligence               │
+│ Deep Learning + Natural Language Processing                   │
+│ Real-time Optimization + Intelligent Automation               │
+└────────────────────────────────────────────────────────────────┘
+```
+
+### Risk Mitigation Through Progressive Approach
+
+#### **Reduced Implementation Risk**:
+- Start with proven, simple logic that stakeholders understand
+- Build confidence through early wins before investing in complex AI
+- Learn from customer behavior before making advanced predictions
+- Validate business value at each phase before proceeding
+
+#### **Stakeholder Comfort**:
+- Phase 1: "Clear business rules we can understand and control"
+- Phase 2: "Data-driven insights that improve our decision making" 
+- Phase 3: "Advanced AI that gives us competitive advantage"
+
+#### **Budget Management**:
+- Phase 1: €100-200K investment, 3-6 month ROI
+- Phase 2: €300-500K investment, 6-12 month ROI
+- Phase 3: €500K-1M investment, 12-24 month ROI
+
+#### **Skill Development**:
+- Phase 1: Business analysts and existing IT team
+- Phase 2: Add data scientists and ML engineers
+- Phase 3: Add AI specialists and advanced analytics team
+
+This progressive approach ensures stakeholder buy-in through demonstrated value at each stage while building toward sophisticated AI capabilities that provide long-term competitive advantage.
+
 ---
 
 #### 💼 Business Users (Sales/Marketing/Customer Service) - 25 Minutes
