@@ -559,6 +559,14 @@ The Delivery Engine serves as the system's "execution team" that takes the orche
 - **Azure Communication Services**: SMS, email, and notification delivery
 - **Alternative Solutions**: Twilio SendGrid, Amazon SES, Braze, Iterable
 
+**Omni-Channel Coordination**:
+The Delivery Engine ensures **seamless customer experience across all channels** by:
+- **Synchronized Messaging**: Consistent recommendations whether delivered via email, portal, mobile app, or sales call
+- **Context Preservation**: Customer interaction history and preferences travel across all touchpoints
+- **Channel Orchestration**: Intelligent timing prevents communication conflicts (no email and call on same day)
+- **Preference Management**: Respects customer channel preferences and communication frequency settings
+- **Seamless Handoffs**: Digital interactions can smoothly transition to human assistance with complete context
+
 **Used For**: Both cross-sales and next best actions (executes all customer touchpoints)
 
 ---
@@ -995,6 +1003,86 @@ Your General Liability policy expires in 30 days (Dec 15, 2025).
 
 [Renew in 2 Minutes] [Schedule Review Call]
 ```
+
+### Omni-Channel Customer Experience Integration
+
+The cross-sales solution operates across all customer touchpoints to deliver a **seamless omni-channel experience** where customers can start their insurance journey on one channel and complete it on another without losing context.
+
+#### Cross-Channel Coordination Strategy
+
+**Unified Customer Journey Management:**
+```
+Customer Touchpoint Ecosystem:
+┌─── DIGITAL SELF-SERVICE ───────────────────────────────┐
+│ • MyBusiness Portal (recommendations dashboard)        │
+│ • Digital Web Shops (real-time cross-sales)           │
+│ • Mobile App (alerts and quick actions)               │
+│ • Email Campaigns (triggered recommendations)         │
+└────────────────┬───────────────────────────────────────┘
+                 │ Seamless Context Sharing
+                 ▼
+┌─── HUMAN-ASSISTED CHANNELS ────────────────────────────┐
+│ • Account Manager Calls (AI-powered insights)         │
+│ • Customer Service (recommendation explanations)      │
+│ • Branch Visits (portfolio reviews)                   │
+│ • Expert Consultations (complex risk assessment)      │
+└────────────────────────────────────────────────────────┘
+```
+
+**Channel-Specific Optimization:**
+- **MyBusiness Portal**: Visual analytics, self-service tools, comprehensive information
+- **Digital Web Shops**: Streamlined purchase, instant quotes, bundle recommendations  
+- **Email Communications**: Educational content, industry insights, detailed explanations
+- **Mobile App**: Quick notifications, on-the-go management, urgent alerts
+- **Phone/Personal Contact**: Complex consultation, relationship building, customized solutions
+
+**Omni-Channel Business Rules:**
+- Consistent recommendation logic across all touchpoints
+- No duplicate communications within 48-hour windows
+- Customer preferences respected regardless of channel
+- Seamless handoffs between digital and human interactions
+- Real-time context sharing prevents information repetition
+
+#### Example Omni-Channel Cross-Sales Journey
+
+**Scenario: Growing Manufacturing Company**
+```
+Day 1: Portal Activity
+├── Customer updates employee count (25 → 40) in MyBusiness
+├── System detects growth signal, calculates new risks
+├── Portal displays: "Your expansion may need enhanced protection"
+├── Omni-channel context: Records interaction preference (self-service)
+└── Customer reviews recommendations but doesn't act
+
+Day 3: Email Follow-up  
+├── Automated email: "Protect your growing workforce"
+├── References portal activity (no repetition needed)
+├── Includes Workers' Comp and Product Liability recommendations
+├── Cross-channel learning: Adjusts messaging based on portal behavior
+└── Customer clicks for more information
+
+Day 5: Webshop Engagement
+├── Customer lands on webshop with pre-filled data
+├── Employee count already updated, risk profile loaded
+├── Instant quotes for Workers' Comp (€4,200) + Product Liability (€3,100)
+├── Omni-channel consistency: Same recommendations, enhanced details
+└── Customer saves quotes but doesn't purchase
+
+Day 7: Account Manager Call
+├── Manager has complete omni-channel journey context loaded
+├── Discusses specific concerns about expansion challenges
+├── Provides customized proposal with bundle discount
+├── Channel orchestration: Seamlessly transitions from digital to human
+└── Closes Workers' Comp + Product Liability + Group Life package
+```
+
+**Omni-Channel Benefits Achieved:**
+- Customer never repeated company information across channels
+- Consistent recommendations and pricing across all touchpoints  
+- Natural progression from self-service to expert consultation
+- Cross-channel learning improved messaging effectiveness
+- Higher conversion through personalized, contextual omni-channel approach
+- Seamless transition between digital and human-assisted channels
 
 ### Digital Integration Points
 
@@ -1516,6 +1604,9 @@ This line of business analysis provides clear guidance for both POC development 
 - **Policy Retention Rate**: Impact on customer loyalty
 - **Time to Purchase**: Efficiency of the cross-sales process
 - **Self-Service Adoption**: Customer engagement with digital tools
+- **Omni-Channel Consistency Score**: Customer experience uniformity across touchpoints
+- **Cross-Channel Journey Completion**: Success rate of multi-channel engagement flows
+- **Channel Preference Accuracy**: System's ability to predict and respect customer channel preferences
 
 ### Operational KPIs
 - **Recommendation Accuracy**: Relevance of suggested products
@@ -1692,19 +1783,21 @@ Technical Risk: LOW (building on proven platforms)
 
 **Slide 2: Integration Points**
 ```
-Data Flow Architecture
+Omni-Channel Data Flow Architecture
 
 Customer Data Sources → Data Aggregation Layer → Intelligence Engine
         ↓                        ↓                        ↓
     Salesforce CRM          Azure Data Factory      Azure ML + Databricks
     Policy Systems          Real-time Streaming      Custom Analytics Models
     External Providers      Data Quality Mgmt       Recommendation Logic
+    Channel Interactions    Omni-Channel Context    Cross-Channel Learning
                                     ↓
                            Decision Orchestrator → Delivery Engine
                                     ↓                     ↓
                            Business Rules Engine    MyBusiness Portal
                            Campaign Coordination    Digital Web Shops
-                           Resource Allocation      Email/SMS/Calls
+                           Channel Orchestration    Email/SMS/Calls
+                           Omni-Channel Sync       Human-Assisted Channels
 ```
 
 **Slide 3: Development Phases**
