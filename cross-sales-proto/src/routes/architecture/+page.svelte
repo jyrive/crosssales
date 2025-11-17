@@ -10,6 +10,8 @@
   import Mail from '$lib/icons/Mail.svelte';
   import Phone from '$lib/icons/Phone.svelte';
   import Globe from '$lib/icons/Globe.svelte';
+  import Mobile from '$lib/icons/Mobile.svelte';
+  import ShoppingCart from '$lib/icons/ShoppingCart.svelte';
   
   let selectedComponent = $state('overview');
   
@@ -106,18 +108,93 @@
     },
     {
       id: 'customer-touchpoints',
-      name: 'Customer Touchpoints',
-      description: 'Direct customer interaction channels',
-      technology: 'MyBusiness Portal, Salesforce CRM',
-      connections: ['delivery-engine'],
+      name: 'Customer Touchpoints Hub',
+      description: 'Orchestrates all customer interaction channels',
+      technology: 'Channel Management Platform',
+      connections: ['delivery-engine', 'mybusiness-portal', 'mobile-app', 'webshop', 'email-sms', 'call-center'],
       features: [
-        'MyBusiness self-service portal',
-        'Digital webshop integration',
-        'Call center systems',
-        'Email/SMS delivery'
+        'Channel orchestration',
+        'Consistent experience across channels',
+        'Real-time synchronization',
+        'Cross-channel analytics'
       ],
       status: 'operational',
       position: { x: 10, y: 60 }
+    },
+    {
+      id: 'mybusiness-portal',
+      name: 'MyBusiness Portal',
+      description: 'Self-service customer portal with recommendations',
+      technology: 'React, Azure Web Apps',
+      connections: ['customer-touchpoints'],
+      features: [
+        'Policy management',
+        'Recommendation widgets',
+        'Quote generation',
+        'Document access'
+      ],
+      status: 'operational',
+      position: { x: 5, y: 85 }
+    },
+    {
+      id: 'mobile-app',
+      name: 'Mobile App',
+      description: 'Native mobile application for on-the-go access',
+      technology: 'React Native, Push Notifications',
+      connections: ['customer-touchpoints'],
+      features: [
+        'Push notifications',
+        'Mobile-optimized quotes',
+        'Quick claim reporting',
+        'Location-based services'
+      ],
+      status: 'operational',
+      position: { x: 15, y: 85 }
+    },
+    {
+      id: 'webshop',
+      name: 'Digital Webshop',
+      description: 'E-commerce platform for insurance products',
+      technology: 'Shopify Plus, Custom APIs',
+      connections: ['customer-touchpoints'],
+      features: [
+        'Product catalog',
+        'Instant quotes',
+        'Online purchasing',
+        'Comparison tools'
+      ],
+      status: 'operational',
+      position: { x: 25, y: 85 }
+    },
+    {
+      id: 'email-sms',
+      name: 'Email & SMS',
+      description: 'Automated messaging and communication',
+      technology: 'Azure Communication Services, SendGrid',
+      connections: ['customer-touchpoints'],
+      features: [
+        'Personalized campaigns',
+        'Trigger-based messaging',
+        'A/B testing',
+        'Delivery tracking'
+      ],
+      status: 'operational',
+      position: { x: 35, y: 85 }
+    },
+    {
+      id: 'call-center',
+      name: 'Call Center',
+      description: 'Human support and sales assistance',
+      technology: 'Salesforce Service Cloud, CTI Integration',
+      connections: ['customer-touchpoints'],
+      features: [
+        'Intelligent routing',
+        'Screen pop recommendations',
+        'Call recording',
+        'Agent dashboards'
+      ],
+      status: 'operational',
+      position: { x: 45, y: 85 }
     },
     {
       id: 'external-data',
@@ -154,6 +231,46 @@
       status: 'connected'
     },
     {
+      name: 'Mobile App (iOS/Android)',
+      type: 'Customer Interface',
+      description: 'Native mobile application with push notifications',
+      apis: ['REST API', 'Push Notification API'],
+      dataFlow: 'Bidirectional',
+      status: 'connected'
+    },
+    {
+      name: 'Digital Webshop',
+      type: 'Customer Interface',
+      description: 'E-commerce platform for insurance product sales',
+      apis: ['Shopify API', 'Payment Gateway API'],
+      dataFlow: 'Bidirectional',
+      status: 'connected'
+    },
+    {
+      name: 'Azure Communication Services',
+      type: 'Communication Platform',
+      description: 'Email, SMS, and calling capabilities',
+      apis: ['REST API', 'SDKs'],
+      dataFlow: 'Outbound',
+      status: 'connected'
+    },
+    {
+      name: 'SendGrid Email Platform',
+      type: 'Email Service',
+      description: 'Transactional and marketing email delivery',
+      apis: ['Web API', 'SMTP'],
+      dataFlow: 'Outbound',
+      status: 'connected'
+    },
+    {
+      name: 'Call Center (Salesforce Service Cloud)',
+      type: 'Human Interface',
+      description: 'Agent desktop with integrated CRM and recommendations',
+      apis: ['REST API', 'CTI Integration'],
+      dataFlow: 'Bidirectional',
+      status: 'connected'
+    },
+    {
       name: 'Azure Databricks',
       type: 'Analytics Platform',
       description: 'Advanced analytics and machine learning workloads',
@@ -170,14 +287,6 @@
       status: 'connected'
     },
     {
-      name: 'Azure Communication Services',
-      type: 'Communication Platform',
-      description: 'Email, SMS, and calling capabilities',
-      apis: ['REST API', 'SDKs'],
-      dataFlow: 'Outbound',
-      status: 'connected'
-    },
-    {
       name: 'External News APIs',
       type: 'Data Feed',
       description: 'Real-time industry news and incident monitoring',
@@ -189,38 +298,80 @@
 
   let dataFlow = [
     {
-      source: 'Customer Portal',
+      source: 'MyBusiness Portal',
       target: 'Data Aggregation',
-      data: 'User interactions, profile updates',
-      volume: '~1,200 events/hour',
+      data: 'User interactions, profile updates, quote requests',
+      volume: '~800 events/hour',
       latency: '< 100ms'
+    },
+    {
+      source: 'Mobile App',
+      target: 'Data Aggregation',
+      data: 'App usage, push notification responses',
+      volume: '~400 events/hour',
+      latency: '< 150ms'
+    },
+    {
+      source: 'Digital Webshop',
+      target: 'Data Aggregation',
+      data: 'Product views, cart actions, purchases',
+      volume: '~300 events/hour',
+      latency: '< 200ms'
     },
     {
       source: 'Salesforce CRM',
       target: 'Data Aggregation',
-      data: 'Policy data, customer information',
+      data: 'Policy data, customer information, agent notes',
       volume: '~850 updates/hour',
       latency: '< 2 seconds'
     },
     {
+      source: 'Call Center',
+      target: 'Data Aggregation',
+      data: 'Call logs, agent interactions, outcomes',
+      volume: '~200 interactions/hour',
+      latency: '< 5 seconds'
+    },
+    {
       source: 'Data Aggregation',
       target: 'Customer Intelligence',
-      data: 'Normalized customer data',
-      volume: '~2,000 records/hour',
+      data: 'Normalized omni-channel customer data',
+      volume: '~2,500 records/hour',
       latency: '< 5 seconds'
     },
     {
       source: 'Customer Intelligence',
       target: 'Cross-Sales Engine',
-      data: 'Risk profiles, behavioral insights',
-      volume: '~500 analyses/hour',
+      data: 'Risk profiles, behavioral insights, channel preferences',
+      volume: '~600 analyses/hour',
       latency: '< 30 seconds'
     },
     {
       source: 'Cross-Sales Engine',
       target: 'Next Best Action',
-      data: 'Product recommendations',
-      volume: '~300 recommendations/hour',
+      data: 'Product recommendations, timing suggestions',
+      volume: '~400 recommendations/hour',
+      latency: '< 10 seconds'
+    },
+    {
+      source: 'Next Best Action',
+      target: 'Delivery Engine',
+      data: 'Channel routing, personalized content',
+      volume: '~350 actions/hour',
+      latency: '< 5 seconds'
+    },
+    {
+      source: 'Delivery Engine',
+      target: 'Email & SMS',
+      data: 'Personalized campaigns, notifications',
+      volume: '~250 messages/hour',
+      latency: '< 30 seconds'
+    },
+    {
+      source: 'Delivery Engine',
+      target: 'Call Center',
+      data: 'Lead assignments, context data',
+      volume: '~100 leads/hour',
       latency: '< 10 seconds'
     }
   ];
@@ -242,6 +393,25 @@
     if (latency.includes('100ms')) return 'text-green-600';
     if (latency.includes('seconds') && !latency.includes('30')) return 'text-blue-600';
     return 'text-orange-600';
+  }
+
+  function getComponentIcon(component) {
+    switch(component.id) {
+      case 'mybusiness-portal': return Globe;
+      case 'mobile-app': return Mobile;
+      case 'webshop': return ShoppingCart;
+      case 'email-sms': return Mail;
+      case 'call-center': return Phone;
+      case 'customer-touchpoints': return Users;
+      case 'customer-intelligence': 
+      case 'cross-sales-engine':
+      case 'next-best-action':
+      case 'decision-orchestrator': return Target;
+      case 'delivery-engine': return Bolt;
+      case 'data-aggregation':
+      case 'external-data': return Building;
+      default: return Building;
+    }
   }
 
   let selectedComponentDetails = $derived(getComponentById(selectedComponent));
@@ -288,7 +458,7 @@
                       {selectedComponent === component.id ? 'border-primary-500 shadow-xl' : 'border-gray-200 hover:border-primary-300'}
                       max-w-[200px]">
             <div class="flex items-center mb-2">
-              <Building class="h-5 w-5 text-primary-600 mr-2" />
+              <svelte:component this={getComponentIcon(component)} class="h-5 w-5 text-primary-600 mr-2" />
               <span class="px-2 py-1 rounded-full text-xs font-medium {getStatusColor(component.status)}">
                 {component.status}
               </span>
@@ -306,13 +476,23 @@
             <polygon points="0 0, 10 3.5, 0 7" fill="#6b7280" />
           </marker>
         </defs>
-        <!-- Example connections - in a real app, these would be calculated dynamically -->
+        <!-- Core engine connections -->
         <line x1="20%" y1="25%" x2="35%" y2="25%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
         <line x1="50%" y1="25%" x2="60%" y2="25%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
         <line x1="75%" y1="25%" x2="85%" y2="25%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
         <line x1="80%" y1="30%" x2="70%" y2="55%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
         <line x1="55%" y1="65%" x2="40%" y2="65%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
         <line x1="30%" y1="65%" x2="20%" y2="65%" stroke="#6b7280" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
+        
+        <!-- Channel connections (touchpoints to specific channels) -->
+        <line x1="10%" y1="70%" x2="5%" y2="80%" stroke="#10b981" stroke-width="2" opacity="0.7" marker-end="url(#arrowhead)" />
+        <line x1="10%" y1="70%" x2="15%" y2="80%" stroke="#10b981" stroke-width="2" opacity="0.7" marker-end="url(#arrowhead)" />
+        <line x1="10%" y1="70%" x2="25%" y2="80%" stroke="#10b981" stroke-width="2" opacity="0.7" marker-end="url(#arrowhead)" />
+        <line x1="10%" y1="70%" x2="35%" y2="80%" stroke="#10b981" stroke-width="2" opacity="0.7" marker-end="url(#arrowhead)" />
+        <line x1="10%" y1="70%" x2="45%" y2="80%" stroke="#10b981" stroke-width="2" opacity="0.7" marker-end="url(#arrowhead)" />
+        
+        <!-- External data connection -->
+        <line x1="10%" y1="15%" x2="10%" y2="25%" stroke="#8b5cf6" stroke-width="2" opacity="0.6" marker-end="url(#arrowhead)" />
       </svg>
     </div>
   </div>

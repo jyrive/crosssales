@@ -252,7 +252,7 @@ This webshop integration makes cross-sales a natural part of the purchase journe
 ## Logical System Components Architecture
 
 ### System Overview
-The cross-sales solution consists of six core logical components that work together to deliver intelligent recommendations and optimal customer engagement. Each component has specific responsibilities for either cross-sales product identification or next best action determination.
+The cross-sales solution consists of six core logical components that work together to deliver intelligent recommendations and optimal customer engagement through comprehensive omni-channel touchpoints. Each component has specific responsibilities for either cross-sales product identification or next best action determination.
 
 ```
 ┌─────────────────────────────────────────────────────────────────────────┐
@@ -264,37 +264,143 @@ The cross-sales solution consists of six core logical components that work toget
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    1. DATA AGGREGATION LAYER                            │
 │                    (Collect & Normalize)                                 │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────────┐  │
+│  │   SALESFORCE    │  │  AZURE DATA     │  │   EXTERNAL DATA         │  │
+│  │      CRM        │  │    FACTORY      │  │    PROVIDERS            │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────────────┘  │
 └─────────────────┬───────────────────────────────────────────────────────┘
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    2. CUSTOMER INTELLIGENCE ENGINE                       │
 │                    (Profile & Segment)                                   │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────────┐  │
+│  │   DATABRICKS    │  │   AZURE ML      │  │    EINSTEIN             │  │
+│  │   ANALYTICS     │  │   MODELS        │  │    ANALYTICS            │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────────────┘  │
 └─────────────┬───────────────────────────┬───────────────────────────────┘
               │                           │
               ▼                           ▼
 ┌─────────────────────────────┐  ┌─────────────────────────────────────────┐
 │   3a. CROSS-SALES ENGINE    │  │     3b. NEXT BEST ACTION ENGINE         │
 │   (Product Recommendations) │  │     (Engagement Strategy)               │
+│  ┌─────────────────────────┐ │  │ ┌─────────────────────────────────────┐ │
+│  │ Azure Cognitive Services│ │  │ │ Salesforce Marketing Cloud        │ │
+│  │ Custom ML Models        │ │  │ │ Azure Logic Apps                  │ │
+│  └─────────────────────────┘ │  │ └─────────────────────────────────────┘ │
 └─────────────┬───────────────┘  └─────────────┬───────────────────────────┘
               │                                │
               ▼                                ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    4. DECISION ORCHESTRATOR                              │
 │                    (Prioritize & Coordinate)                             │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────────┐  │
+│  │  SALESFORCE     │  │   AZURE         │  │    POWER               │  │
+│  │  SERVICE CLOUD  │  │   SERVICE BUS   │  │    AUTOMATE            │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────────────┘  │
 └─────────────────┬───────────────────────────────────────────────────────┘
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
-│                    5. DELIVERY ENGINE                                    │
-│                    (Execute Actions)                                     │
+│                    5. OMNI-CHANNEL DELIVERY ENGINE                       │
+│                    (Execute Through All Touchpoints)                     │
+└─────────────────┬───────────────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                      CUSTOMER TOUCHPOINTS HUB                           │
+│                     (Channel Orchestration)                             │
+│                                                                         │
+│  ┌─────────────┐ ┌─────────────┐ ┌─────────────┐ ┌─────────────────────┐│
+│  │ MYBUSINESS  │ │   MOBILE    │ │   DIGITAL   │ │    EMAIL & SMS      ││
+│  │   PORTAL    │ │     APP     │ │   WEBSHOP   │ │   COMMUNICATIONS    ││
+│  │             │ │             │ │             │ │                     ││
+│  │ • Self-     │ │ • Native    │ │ • E-commerce│ │ • Personalized      ││
+│  │   Service   │ │   iOS/      │ │   Platform  │ │   Campaigns         ││
+│  │ • Quotes    │ │   Android   │ │ • Instant   │ │ • Trigger-based     ││
+│  │ • Recommend │ │ • Push      │ │   Quotes    │ │   Messages          ││
+│  │   Widgets   │ │   Notify    │ │ • Bundle    │ │ • A/B Testing       ││
+│  │ • Policy    │ │ • Location  │ │   Products  │ │ • Azure Comm       ││
+│  │   Mgmt      │ │   Services  │ │ • Payment   │ │   Services          ││
+│  │             │ │             │ │   Gateway   │ │ • SendGrid          ││
+│  └─────────────┘ └─────────────┘ └─────────────┘ └─────────────────────┘│
+│                                                                         │
+│  ┌─────────────────────────────┐ ┌─────────────────────────────────────┐│
+│  │        CALL CENTER          │ │         WEB PORTAL                  ││
+│  │    (Human Support)          │ │       (Self-Service)                ││
+│  │                             │ │                                     ││
+│  │ • Intelligent Routing       │ │ • Document Access                   ││
+│  │ • Screen Pop Recommendations│ │ • Policy Updates                    ││
+│  │ • Agent Dashboards          │ │ • Claims Submission                 ││
+│  │ • Call Recording            │ │ • Coverage Calculator               ││
+│  │ • Salesforce Service Cloud  │ │ • React Frontend                    ││
+│  │ • CTI Integration           │ │ • Azure Web Apps                    ││
+│  │                             │ │                                     ││
+│  └─────────────────────────────┘ └─────────────────────────────────────┘│
 └─────────────────┬───────────────────────────────────────────────────────┘
                   │
                   ▼
 ┌─────────────────────────────────────────────────────────────────────────┐
 │                    6. FEEDBACK & LEARNING SYSTEM                        │
 │                    (Monitor & Improve)                                   │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────────┐  │
+│  │   DATABRICKS    │  │    POWER BI     │  │   AZURE APPLICATION     │  │
+│  │   ANALYTICS     │  │   DASHBOARDS    │  │      INSIGHTS           │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────────────┘  │
+└─────────────────┬───────────────────────────────────────────────────────┘
+                  │
+                  ▼
+┌─────────────────────────────────────────────────────────────────────────┐
+│                    MANAGEMENT & OPERATIONS LAYER                        │
+│                   (Business Intelligence & Control)                     │
+│                                                                         │
+│  ┌─────────────────────────────┐ ┌─────────────────────────────────────┐│
+│  │      ADMIN DASHBOARD        │ │      ANALYTICS DASHBOARD            ││
+│  │    (Operations Control)     │ │     (Performance Insights)          ││
+│  │                             │ │                                     ││
+│  │ • Real-time System Metrics  │ │ • Journey Funnel Analysis           ││
+│  │ • Campaign Performance KPIs │ │ • Channel Performance Metrics       ││
+│  │ • Customer Activity Feed    │ │ • AI-Powered Optimization           ││
+│  │ • Cross-sales Success Rates │ │ • Segment-based Filtering           ││
+│  │ • System Health Monitoring  │ │ • Conversion Rate Analysis          ││
+│  │ • User Management           │ │ • ROI Performance Tracking          ││
+│  │ • Timeframe Selection       │ │ • Predictive Analytics              ││
+│  │                             │ │                                     ││
+│  └─────────────────────────────┘ └─────────────────────────────────────┘│
+│                                                                         │
+│  ┌─────────────────────────────┐ ┌─────────────────────────────────────┐│
+│  │   EXECUTIVE REPORTING       │ │    ARCHITECTURE MONITORING          ││
+│  │   (Strategic Oversight)     │ │    (Technical Operations)           ││
+│  │                             │ │                                     ││
+│  │ • Business Impact Metrics   │ │ • Component Health Status           ││
+│  │ • Customer Lifetime Value   │ │ • Data Flow Performance             ││
+│  │ • Market Penetration Rates  │ │ • Integration Point Monitoring      ││
+│  │ • Competitive Positioning   │ │ • API Performance Metrics           ││
+│  │ • Regulatory Compliance     │ │ • Security & Compliance Status      ││
+│  │ • Strategic KPI Tracking    │ │ • Scalability Indicators            ││
+│  │ • Monthly/Quarterly Reports │ │ • System Resource Utilization       ││
+│  │                             │ │                                     ││
+│  └─────────────────────────────┘ └─────────────────────────────────────┘│
 └─────────────────────────────────────────────────────────────────────────┘
+
+MANAGEMENT ACCESS LEVELS:
+┌─────────────────┬─────────────────┬─────────────────┬─────────────────────┐
+│ Operations Team │ Business Analysts│ Executive Level │ Technical Teams     │
+│ • Admin Dashboard│ • Analytics     │ • Executive     │ • Architecture      │
+│ • Daily Metrics │   Dashboard     │   Reporting     │   Monitoring        │
+│ • Campaign Mgmt │ • Performance   │ • Strategic KPIs│ • System Health     │
+│ • Customer Data │   Analysis      │ • Business      │ • Integration       │
+│               │ • Funnel Metrics│   Impact        │   Status            │
+└─────────────────┴─────────────────┴─────────────────┴─────────────────────┘
+
+DATA FLOW METRICS (Per Hour):
+┌─────────────────┬─────────────────┬─────────────────┬─────────────────────┐
+│ MyBusiness      │ Mobile App      │ Digital Webshop │ Email/SMS           │
+│ ~800 events     │ ~400 events     │ ~300 events     │ ~250 interactions   │
+├─────────────────┼─────────────────┼─────────────────┼─────────────────────┤
+│ Call Center     │ Salesforce CRM  │ External Data   │ TOTAL PROCESSING    │
+│ ~200 calls      │ ~850 updates    │ ~100 feeds      │ ~3,450 data points  │
+└─────────────────┴─────────────────┴─────────────────┴─────────────────────┘
 ```
 
 ### Component Specifications
@@ -766,6 +872,176 @@ Returns to MyBusiness with updated portfolio
 ```
 
 This integrated approach leverages your existing technology investments while adding intelligent cross-sales capabilities throughout the customer journey.
+
+## Technical Implementation Architecture
+
+### Omni-Channel Customer Touchpoints
+
+The enhanced system architecture includes detailed customer touchpoint channels that provide comprehensive omni-channel experience:
+
+#### Core Channel Components
+
+**Customer Touchpoints Hub**
+- **Purpose**: Central orchestration of all customer interaction channels
+- **Technology Stack**: Channel Management Platform, Azure Service Bus
+- **Key Features**: Channel orchestration, consistent experience across channels, real-time synchronization, cross-channel analytics
+- **Connections**: Delivery Engine, MyBusiness Portal, Mobile App, Webshop, Email/SMS, Call Center
+
+**MyBusiness Portal**
+- **Purpose**: Self-service customer portal with AI-powered recommendations
+- **Technology Stack**: React, Azure Web Apps, GraphQL APIs
+- **Key Features**: Policy management, recommendation widgets, quote generation, document access
+- **Integration**: REST API, GraphQL, bidirectional data flow
+- **Enhanced Capabilities**: Real-time recommendation display, coverage gap visualization, one-click quote requests
+
+**Mobile Application**
+- **Purpose**: Native mobile application for on-the-go access
+- **Technology Stack**: React Native, Push Notifications API, Azure Mobile Services
+- **Key Features**: Push notifications, mobile-optimized quotes, quick claim reporting, location-based services
+- **Integration**: REST API, Push Notification API, bidirectional data flow
+- **Cross-Sales Integration**: Contextual notifications, location-based insurance recommendations
+
+**Digital Webshop**
+- **Purpose**: E-commerce platform for direct insurance product purchases
+- **Technology Stack**: Shopify Plus, Payment Gateway APIs, Custom Insurance APIs
+- **Key Features**: Product catalog, instant quotes, online purchasing, comparison tools
+- **Integration**: Shopify API, Payment Gateway API, bidirectional data flow
+- **Real-Time Cross-Sales**: Dynamic product bundling, intelligent upselling during checkout
+
+**Email & SMS Communications**
+- **Purpose**: Automated multi-channel messaging and personalized campaigns
+- **Technology Stack**: Azure Communication Services, SendGrid, Marketing Automation
+- **Key Features**: Personalized campaigns, trigger-based messaging, A/B testing, delivery tracking
+- **Integration**: REST API, SMTP, outbound data flow
+- **Intelligent Messaging**: AI-driven content personalization, optimal timing algorithms
+
+**Call Center Integration**
+- **Purpose**: Human support with AI-enhanced agent capabilities
+- **Technology Stack**: Salesforce Service Cloud, CTI Integration, Agent Desktop APIs
+- **Key Features**: Intelligent routing, screen pop recommendations, call recording, agent dashboards
+- **Integration**: REST API, CTI Integration, bidirectional data flow
+- **Enhanced Agent Tools**: Real-time customer insights, recommended conversation starters, cross-sales prompts
+
+### Data Flow Architecture
+
+The enhanced architecture processes significantly higher data volumes across multiple channels:
+
+#### Real-Time Data Streams
+
+**Channel-Specific Data Volumes** (per hour):
+- MyBusiness Portal: ~800 interaction events (logins, page views, quote requests)
+- Mobile App: ~400 usage events (app opens, push responses, location updates)
+- Digital Webshop: ~300 commerce events (product views, cart actions, purchases)
+- Call Center: ~200 interaction events (calls, outcomes, agent notes)
+- Email/SMS: ~250 campaign interactions (opens, clicks, responses)
+
+**Aggregate Data Processing**:
+- Total Customer Interactions: ~2,500 events/hour
+- Salesforce CRM Updates: ~850 policy/customer updates/hour
+- External Data Feeds: ~100 market/news updates/hour
+- **Combined Volume**: ~3,450 data points/hour requiring real-time processing
+
+#### Latency Performance Targets
+
+**Ultra-Fast Channels** (< 100ms):
+- MyBusiness Portal interactions
+- Mobile app responsiveness
+- Real-time recommendation display
+
+**Fast Processing** (< 5 seconds):
+- Data aggregation to customer intelligence
+- Cross-channel synchronization
+- Portal recommendation updates
+
+**Standard Processing** (< 30 seconds):
+- AI model predictions
+- Complex analytics calculations
+- Personalized content generation
+
+### Integration Points Expansion
+
+#### External System Integrations
+
+**Customer-Facing Platforms**:
+- **MyBusiness Portal**: REST API, GraphQL (Bidirectional)
+- **Mobile App (iOS/Android)**: REST API, Push Notifications (Bidirectional)
+- **Digital Webshop**: Shopify API, Payment Gateways (Bidirectional)
+
+**Communication Platforms**:
+- **Azure Communication Services**: REST API, SDKs (Outbound)
+- **SendGrid Email Platform**: Web API, SMTP (Outbound)
+- **Call Center Platform**: Salesforce Service Cloud APIs, CTI (Bidirectional)
+
+**Core Business Systems**:
+- **Salesforce CRM**: REST API, Bulk API, Streaming API (Bidirectional)
+- **Azure Databricks**: Analytics APIs, JDBC/ODBC (Inbound)
+- **Azure Data Factory**: REST API, PowerShell (Orchestration)
+
+**External Data Sources**:
+- **Industry News APIs**: REST API, Webhooks (Inbound)
+- **Market Data Providers**: APIs, scheduled feeds (Inbound)
+- **Credit/Business Intelligence**: Third-party APIs (Inbound)
+
+### Performance Monitoring & Scalability
+
+#### System Health Indicators
+
+**Channel Performance Metrics**:
+- Portal response time: < 2 seconds (target)
+- Mobile app crash rate: < 0.1% (target)
+- Email delivery rate: > 99% (target)
+- Call center system uptime: > 99.9% (target)
+
+**Data Processing Health**:
+- Real-time pipeline lag: < 30 seconds (target)
+- ML model prediction accuracy: > 85% (target)
+- Cross-channel sync delay: < 10 seconds (target)
+
+#### Scalability Architecture
+
+**Auto-Scaling Components**:
+- Azure App Services for web applications
+- Function Apps for serverless processing
+- Service Bus for message queuing
+- Databricks clusters for analytics workloads
+
+**Load Balancing Strategy**:
+- Geographic distribution across Nordic regions
+- Traffic routing based on customer location
+- Failover mechanisms for critical components
+- Cache layers for frequently accessed data
+
+### Security & Compliance Framework
+
+#### Data Protection Measures
+
+**GDPR Compliance**:
+- Data minimization principles in collection
+- Right to be forgotten implementation
+- Consent management across all channels
+- Data portability for customer requests
+
+**Security Implementation**:
+- End-to-end encryption for all customer communications
+- OAuth 2.0 authentication across systems
+- API rate limiting and threat detection
+- Regular security audits and penetration testing
+
+#### Business Continuity
+
+**Disaster Recovery**:
+- Multi-region deployment with automatic failover
+- Real-time data replication across availability zones
+- Recovery time objective (RTO): < 4 hours
+- Recovery point objective (RPO): < 15 minutes
+
+**Monitoring & Alerting**:
+- 24/7 system health monitoring
+- Automated alert escalation procedures
+- Performance dashboard for operations team
+- Customer impact notification system
+
+This comprehensive technical architecture ensures robust, scalable, and secure omni-channel cross-sales capabilities while maintaining high performance and regulatory compliance across all Nordic markets.
 
 ## Cross-Sales Strategy Overview
 
